@@ -33,13 +33,30 @@ You can install all required packages with:
 pip install -r requirements.txt
 
 ## 3. Folder Structure
-Sourcecode/
-  ├── feature_extraction.py
-  ├── knn_classification.py
-  ├── svm_classification.py
-  ├── rf_classification.py
-  ├── augmentation.py
-  ├── README.md
+dataset/
+├── mango_1/
+│ ├── M1_Latest_64_bgcleaned_m1.ipynb
+│ ├── M1_Latest_128_bgcleaned_m1.ipynb
+│ └── M1_Latest_256_bgcleaned_m1.ipynb
+├── mango_2/
+│ ├── M2_Latest_64_bgcleaned_m2.ipynb
+│ ├── M2_Latest_128_bgcleaned_m2.ipynb
+│ └── M2_Latest_256_bgcleaned_m2.ipynb
+├── papaya_1/
+│ ├── P1_Latest_64_bgcleaned_p1.ipynb
+│ ├── P1_Latest_128_bgcleaned_p1.ipynb
+│ └── P1_Latest_256_bgcleaned_p1.ipynb
+└── papaya_2/
+├── P2_Latest_64_bgcleaned_p2.ipynb
+├── P2_Latest_128_bgcleaned_p2.ipynb
+└── P2_Latest_256_bgcleaned_p2.ipynb
+
+sourcecode/
+├── augmentation.py
+├── feature_extraction.py
+├── knn_classification.py
+└── rf_classification.py
+└── svm_classification.py
 
 ## 4. Installation Steps
 1. Clone this repository or download the source code.
