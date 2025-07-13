@@ -32,7 +32,7 @@ You can install all required packages with:
 
 ```bash
 pip install -r requirements.txt
-
+```
 
 ## 4. Folder Structure
 
