@@ -1,171 +1,113 @@
-# Fruit Ripeness Identification System - Source Code
+# Fruit Ripeness Identification System
 
-This folder contains the source code for the Fruit Ripeness Identification System, developed for mango ripeness stage classification using both traditional machine learning and deep learning methods.
+This repository contains all source code, notebooks, and dataset instructions for the **Fruit Ripeness Identification System**. The system uses traditional machine learning algorithms (KNN, SVM, Random Forest) and image processing techniques to classify the ripeness stage of mangoes and papayas.
 
-## 1. Introduction
+---
 
-This project provides scripts to preprocess mango images, extract features (such as RGB, HIS, CIELab, and texture features), and perform classification using KNN, SVM, Random Forest, and MLP models. The codebase also supports image augmentation, model evaluation, and visualization.
+## Repository Structure
 
-## 2. Prerequisites
-
-- Python 3.8 or above
-- pip
-
-**Required Python packages:**
-
-- numpy
-- pandas
-- scikit-learn
-- opencv-python
-- matplotlib
-- scikit-image
-- albumentations
-- tqdm
-
-
-## 3. Installation Steps
-
-Clone this repository or download the source code。
-
-Navigate to the Sourcecode directory:
-You can install all required packages with:
-
-```bash
-pip install -r requirements.txt
-```
-
-## 4. Folder Structure
-
-dataset/
-├── mango_1/
-│ ├── M1_Latest_64_bgcleaned_m1.ipynb
-│ ├── M1_Latest_128_bgcleaned_m1.ipynb
-│ └── M1_Latest_256_bgcleaned_m1.ipynb
-├── mango_2/
-│ ├── M2_Latest_64_bgcleaned_m2.ipynb
-│ ├── M2_Latest_128_bgcleaned_m2.ipynb
-│ └── M2_Latest_256_bgcleaned_m2.ipynb
-├── papaya_1/
-│ ├── P1_Latest_64_bgcleaned_p1.ipynb/
-│ ├── P1_Latest_128_bgcleaned_p1.ipynb/
-│ └── P1_Latest_256_bgcleaned_p1.ipynb/
-└── papaya_2/
-├── /P2_Latest_64_bgcleaned_p2.ipynb
-├── /P2_Latest_128_bgcleaned_p2.ipynb
-└── /P2_Latest_256_bgcleaned_p2.ipynb
-
-sourcecode/
-├── augmentation.py
-├── feature_extraction.py
-├── knn_classification.py
-└── rf_classification.py
-└── svm_classification.py
-
-
-
-## 5. Installation Steps
-1. Clone this repository or download the source code.
-
-2. Navigate to the Sourcecode directory:
-
-cd Sourcecode
-
-4. Install all dependencies:
-
-pip install -r requirements.txt
-
-## 6. How to Run
-Feature Extraction
-python feature_extraction.py --input_dir <path_to_images> --output_csv <features.csv>
-
-KNN Classification: 
-python knn_classification.py --train_csv <train.csv> --test_csv <test.csv>
-
-SVM Classification: 
-python svm_classification.py --train_csv <train.csv> --test_csv <test.csv>
-
-Random Forest Classification:
-python rf_classification.py --train_csv <train.csv> --test_csv <test.csv>
-
-Image Augmentation:
-python augmentation.py --input_dir <path_to_images> --output_dir <augmented_images_dir>
-
-
-
-# Dataset Overview
-
-This folder organizes the datasets used for the Fruit Ripeness Identification System. It contains four subdirectories:
-
-```
-dataset/
-├── mango_1/
-├── mango_2/
-├── papaya_1/
-└── papaya_2/
+```plaintext
+/
+├── dataset/            # Dataset folders and download instructions
+│   ├── mango_1/
+│   ├── mango_2/
+│   ├── papaya_1/
+│   └── papaya_2/
+└── sourcecode/         # Python scripts and notebooks
+    ├── augmentation.py
+    ├── feature_extraction.py
+    ├── knn_classification.py
+    ├── rf_classification.py
+    └── svm_classification.py
 ```
 
 ---
 
-## mango\_1
+## 1. Source Code
 
-- **Source**: Kaggle
-- **Link**: [https://www.kaggle.com/datasets/srabon00/mango-ripening-stage-classification](https://www.kaggle.com/datasets/srabon00/mango-ripening-stage-classification)
-- **Description**: This dataset includes mango images categorized by ripeness stage (e.g., unripe, ripe, overripe). It is used for color-based feature extraction and classification.
+All code modules live in the `sourcecode/` directory. Brief descriptions:
 
----
+* **augmentation.py**
+  Defines image augmentation pipelines (rotations, flips, brightness, etc.) using Albumentations.
 
-## mango\_2
+* **feature\_extraction.py**
+  Extracts color (RGB, HIS, CIELab) and texture (GLCM, LBP) features from cropped image regions.
 
-- **Source**: Roboflow Universe
-- **Link**: [https://universe.roboflow.com/lab-advance-140316/140-316-rpnps](https://universe.roboflow.com/lab-advance-140316/140-316-rpnps)
-- **Description**: Provided by the Lab Advance team, this dataset contains background-cleaned mango images at multiple resolutions, suitable for texture analysis and machine learning pipelines.
+* **knn\_classification.py**
+  Trains and evaluates a K-Nearest Neighbors classifier on extracted features; outputs classification reports and confusion matrices.
 
----
+* **rf\_classification.py**
+  Implements Random Forest training, cross-validation, and visualization of feature importance.
 
-## papaya\_1
+* **svm\_classification.py**
+  Runs Support Vector Machine experiments with different kernels (linear, RBF, sigmoid), generates multi-class ROC curves and AUC scores.
 
-- **Source**: Roboflow Universe
-- **Link**: [https://universe.roboflow.com/papaya-ripeness-detection/papaya-ripeness-detection](https://universe.roboflow.com/papaya-ripeness-detection/papaya-ripeness-detection)
-- **Description**: This dataset provides papaya images with labeled ripeness stages, captured under various lighting and angles. It is used to train supervised learning models for papaya ripeness detection.
+### Installation and Dependencies
 
----
-
-## papaya\_2
-
-- **Source**: Academic dataset from UNICAMP and UEL
-- **Reference**: Pereira, L.F.S., Barbon Jr, S., Valous, N.A. & Barbin, D.F. (2018). Predicting the ripening of papaya fruit with digital imaging and random forests. *Computers and Electronics in Agriculture*, 145, 76–82. DOI: 10.1016/j.compag.2017.12.029
-- **Description**: This JPEG dataset contains 130 samples from 57 papaya fruits, annotated into three maturity stages (EM1, EM2, EM3). Some fruits include multiple image captures.
-- **Acknowledgements**:
-  - Department of Food Engineering, University of Campinas (UNICAMP), Brazil
-  - Department of Computer Science, Londrina State University (UEL), Brazil
-- **BibTeX**:
-
-```bibtex
-@article{pereira2018predicting,
-  title={Predicting the ripening of papaya fruit with digital imaging and random forests},
-  author={Pereira, Luiz Fernando Santos and Barbon Jr, Sylvio and Valous, Nektarios A and Barbin, Douglas Fernandes},
-  journal={Computers and Electronics in Agriculture},
-  volume={145},
-  pages={76--82},
-  year={2018},
-  publisher={Elsevier},
-  doi={10.1016/j.compag.2017.12.029}
-}
-```
-
----
-
-## How to Use
-
-1. **Download raw images**
-
-   - **mango\_1**: Download and unzip from the Kaggle link above.
-   - **mango\_2** and **papaya\_1**: Download from Roboflow Universe.
-   - **papaya\_2**: Download via the DOI or direct contact; unzip to `raw_images/papaya_2/`.
-
-2. **Directory structure** after placing raw images:
+1. Clone the repository:
 
    ```bash
+   git clone https://github.com/yourusername/fruit-ripeness-identification-system.git
+   cd fruit-ripeness-identification-system/sourcecode
+   ```
+
+2. Install required packages:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Each script supports command-line arguments. Use `--help` to view usage, for example:
+
+   ```bash
+   python knn_classification.py --help
+   ```
+
+---
+
+## 2. Datasets Overview
+
+The `dataset/` directory contains instructions for four sub-datasets. Raw images are **not** stored here; follow the links to download and then process with the provided notebooks.
+
+```plaintext
+dataset/
+├── mango_1/
+├── mango_2/
+├── papaya_1/
+└── papaya_2/
+```
+
+### 2.1 mango\_1
+
+* **Source**: Kaggle
+* **Link**: [https://www.kaggle.com/datasets/srabon00/mango-ripening-stage-classification](https://www.kaggle.com/datasets/srabon00/mango-ripening-stage-classification)
+* **Description**: Mango images labeled by ripeness (unripe, ripe, overripe).
+
+### 2.2 mango\_2
+
+* **Source**: Roboflow Universe
+* **Link**: [https://universe.roboflow.com/lab-advance-140316/140-316-rpnps](https://universe.roboflow.com/lab-advance-140316/140-316-rpnps)
+* **Description**: Background-cleaned mango images at multiple resolutions for texture-based analysis.
+
+### 2.3 papaya\_1
+
+* **Source**: Roboflow Universe
+* **Link**: [https://universe.roboflow.com/papaya-ripeness-detection/papaya-ripeness-detection](https://universe.roboflow.com/papaya-ripeness-detection/papaya-ripeness-detection)
+* **Description**: Papaya images with ripeness labels under various lighting and angles.
+
+### 2.4 papaya\_2
+
+* **Source**: Academic dataset (UNICAMP & UEL)
+* **Reference**: Pereira et al. (2018). Predicting the ripening of papaya fruit with digital imaging and random forests. *Computers and Electronics in Agriculture*, 145, 76–82. DOI: 10.1016/j.compag.2017.12.029
+* **Description**: 130 JPEG samples from 57 fruits, annotated into three stages (EM1, EM2, EM3).
+
+---
+
+## 3. How to Use
+
+1. **Download raw images** into `raw_images/`:
+
+   ```plaintext
    fruit-ripeness-identification-system/
    ├── raw_images/
    │   ├── mango_1/
@@ -175,18 +117,20 @@ dataset/
    ├── dataset/
    └── sourcecode/
    ```
-
-3. **Run preprocessing notebooks**\
-   Open the desired notebook in `dataset/mango_1/`, `dataset/mango_2/`, etc., and run all cells to generate cleaned and resized images.
-
-4. **Dependencies**\
-   See `sourcecode/requirements.txt` for the full list of Python libraries. Install with:
+2. **Install dependencies**:
 
    ```bash
    pip install -r sourcecode/requirements.txt
    ```
+3. **Run preprocessing notebooks** in `dataset/` to clean and resize images.
+4. **Execute classification scripts** in `sourcecode/`, passing paths to feature CSV and model parameters. Example:
+
+   ```bash
+   python sourcecode/knn_classification.py \
+     --train_csv ../dataset/mango_1/features.csv \
+     --test_csv ../dataset/mango_1/features.csv
+   ```
 
 ---
 
-This README provides a comprehensive overview of all dataset sources, descriptions, and usage instructions for easy replication and extension of the experiments.
-
+*This README covers both code organization and dataset instructions to ensure reproducibility and easy extension of experiments.*
