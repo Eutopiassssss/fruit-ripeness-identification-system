@@ -24,6 +24,7 @@ This project provides scripts to preprocess mango images, extract features (such
 
 
 ## 3. Installation Steps
+
 Clone this repository or download the source code。
 
 Navigate to the Sourcecode directory:
@@ -31,6 +32,7 @@ You can install all required packages with:
 
 ```bash
 pip install -r requirements.txt
+
 
 ## 4. Folder Structure
 
@@ -58,6 +60,8 @@ sourcecode/
 ├── knn_classification.py
 └── rf_classification.py
 └── svm_classification.py
+
+
 
 ## 5. Installation Steps
 1. Clone this repository or download the source code.
