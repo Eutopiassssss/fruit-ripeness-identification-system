@@ -23,7 +23,7 @@ This project provides scripts to preprocess mango images, extract features (such
 - tqdm
 
 
-##Installation Steps
+## 3. Installation Steps
 Clone this repository or download the source code。
 
 Navigate to the Sourcecode directory:
@@ -32,7 +32,8 @@ You can install all required packages with:
 ```bash
 pip install -r requirements.txt
 
-## 3. Folder Structure
+## 4. Folder Structure
+
 dataset/
 ├── mango_1/
 │ ├── M1_Latest_64_bgcleaned_m1.ipynb
@@ -58,7 +59,7 @@ sourcecode/
 └── rf_classification.py
 └── svm_classification.py
 
-## 4. Installation Steps
+## 5. Installation Steps
 1. Clone this repository or download the source code.
 
 2. Navigate to the Sourcecode directory:
@@ -69,7 +70,7 @@ cd Sourcecode
 
 pip install -r requirements.txt
 
-## How to Run
+## 6. How to Run
 Feature Extraction
 python feature_extraction.py --input_dir <path_to_images> --output_csv <features.csv>
 
